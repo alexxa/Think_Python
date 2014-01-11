@@ -23,7 +23,7 @@ a list of used words in lower case.
 '''
     book = open('alice.txt', 'r')
     text = book.read().replace('\n', '')
-    words_list = ''.join(c for c in text if c not in string.punctuation).split()
+    words_list = ''.join(c.lower() for c in text if c not in string.punctuation).split()
     #print(text)
     book.close
     
