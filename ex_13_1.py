@@ -7,7 +7,7 @@
 
 #STATUS: check for refactoring
 
-# Exercise 13.
+# Exercise 13.1
 
 # Write a program that reads a file, breaks each line into words, 
 # strips whitespace and punctuation from the words, and converts 
