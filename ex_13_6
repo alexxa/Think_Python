@@ -1,0 +1,59 @@
+#!/usr/bin/python
+#AUTHOR: alexxa
+#DATE: 11.01.2014
+#SOURCE: Think Python: How to Think Like a Computer Scientist by Allen B. Downey
+# http://www.greenteapress.com/thinkpython/html/index.html
+#PURPOSE: Chapter 13. Case study: data structure selection
+
+
+# Exercise 13.6
+
+# Python provides a data structure called set that provides many common set 
+# operations. Read the documentation at 
+# http://docs.python.org/2/library/stdtypes-set and write a program that uses
+# set subtraction to find words in the book that are not in the word list. 
+# Solution: http://thinkpython.com/code/analyze_book2.py
+
+import string, time
+
+def book_words():
+    '''
+This function reads file (book), breaks it into
+a list of used words in lower case.
+'''
+    book = open('alice.txt', 'r')
+    text = book.read().replace('\n', '')
+    words_list = ''.join(c for c in text if c not in string.punctuation).split()
+    #print(text)
+    book.close
+    
+    return words_list
+
+def words_list():
+    '''
+This function returns words list from words.txt file.
+'''
+    res = []
+    fin = open('words.txt')
+    for line in fin:
+        word = line.strip()
+        res.append(word)
+    return res
+
+def avoids():
+    set1 = set(book_words())
+    set2 = set(words_list())
+    res = set1 - set2
+    print('In total there are {} words which are not in words.txt file'.format(len(res)))
+
+   
+start_time = time.time()
+avoids()
+function_time = time.time() - start_time
+
+print('Running time is {0:.4f} s'.format(function_time))
+
+# I see there are many typo like promisedhe, thoughnothings,
+# sakethats or jamthats, etc.. I don't think it's because of the code,
+# but text 'quality'.
+#END
