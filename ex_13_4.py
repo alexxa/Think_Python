@@ -7,7 +7,7 @@
 
 #STATUS: check for refactoring, complete see *
 
-# Exercise 13.3
+# Exercise 13.4
 
 # Modify the previous program to read a word list (see Section 9.1)
 # and then print all the words in the book that are not in the word
