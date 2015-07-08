@@ -11,19 +11,19 @@
 # that takes a nested list of strings and returns a new nested 
 # list with all strings capitalized.
 
-def capitalize_nested(listik):
-    capitalized = []
-    for i in listik:
-        if type(i) is list:
-            i = capitalize_nested(i)
-        else:
-            i = i.capitalize()  
-        capitalized.append(i)
-    return capitalized
+# this function works for nested lists of arbitrary depth
+def capitalize_nested(nest_list):
+	'''Return a new nested list with all strings capitalized.
+	   nest_list -> that takes a nested list of strings.'''
+	if isinstance(nest_list, list):
+		return [capitalize_nested(s) for s in nest_list]
+	else:
+		return nest_list.capitalize()
 
 print(capitalize_nested(['a','b','c']))
 print(capitalize_nested(['a','b','c',['a','a'],['a']]))
 print(capitalize_nested([]))
 print(capitalize_nested([['banana'],['apple'],['cucumber'],['orange'],['lime'],['tomato']]))
+print capitalize_nested(['reporting for cnn', ['watch', 'the', 'news'], ['a boy', 'died', 'in a car fire', ['bug']]])
 
 #END
